@@ -10,8 +10,8 @@
     $ cd \compose-demo1
     ## Kill all other containers
     $ docker rm -f $(docker ps -aq)
-    ## delete the existing network net1, net2
-    $ docker network rm net1 net2
+    ## delete the existing network net1, net2, net3
+    $ docker network rm net1 net2 net3
     ## Validate YAML file
     $ docker-compose config
     ## Deploy
@@ -25,10 +25,10 @@
     Connection Properties:
     
     ```yml
-    System: MYSQL
+    System: MSSQL
     Servername: db1
-    Username: mahendra
-    Password: pass@12345
+    Username: SA
+    Password: Password$1234
     ```
 
 4.  Cleap-Up

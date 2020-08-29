@@ -1,0 +1,31 @@
+version: '3'
+
+networks:
+  net3:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 182.16.0.0/16
+
+volumes:
+  db-data:
+
+services:
+  db1:
+    image: mcr.microsoft.com/mssql/server
+    volumes:
+      - db-data:/var/opt/mssql
+    networks:
+      - net2
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'Password$1234'
+      
+
+  c1:
+    image: adminer
+    networks:
+      - net2
+    ports:
+      - "8081:8080"    
