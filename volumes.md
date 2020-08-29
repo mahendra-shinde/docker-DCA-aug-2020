@@ -59,3 +59,30 @@ $ docker volume inspect v1
     $ docker volume rm webdata
     ```
 
+## Volume Binding (with Host Path)
+
+1.  Create a local directory with `index.html` file
+
+```
+$ mkdir \temp-web
+$ cd \temp-web
+$ notepad index.html
+### Add few lines of HTML and Save+Close notepad
+```
+
+2.  Launch container which uses "C:\temp-web" as a VOLUME BIND
+
+```
+$ docker run -d --name c2 -p 8080:80 -v c:\temp-web:/usr/share/nginx/html nginx
+```
+
+3.  Visit `http://localhost:8080`
+
+4.  Make changes to `c:\temp-web\index.html` and then REFRESH web-browser.
+
+5.  Clean-Up
+
+```
+$ docker stop c2
+$ docker rm c2
+```
