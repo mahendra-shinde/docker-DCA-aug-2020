@@ -1,0 +1,30 @@
+version: '3'
+
+networks:
+  net2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 162.16.0.0/16
+
+volumes:
+  db-data:
+
+services:
+  db1:
+    image: mahendrshinde/mysql-sample:employees
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - net2
+    environment:
+      MYSQL_USER: mahendra
+      MYSQL_PASSWORD: pass@12345
+
+  c1:
+    image: adminer
+    networks:
+      - net2
+    ports:
+      - "8081:8080"    
