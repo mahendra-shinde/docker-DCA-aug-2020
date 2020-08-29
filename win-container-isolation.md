@@ -28,7 +28,6 @@ $ get-process -Id 1200
 $ docker rm -f c1
 ```
 
-
 1. Try Process Isolation
     Replace ":1809" with ":1909" if your windows build is 1909!
 
