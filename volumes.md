@@ -21,6 +21,13 @@ $ docker volume inspect v1
 
 ## Volume demo
 
+1.  Create the volume
+    
+    ```
+    $ docker volume create webdata
+    $ docker volume inspect webdata
+    ```
+
 1.  Create a new NGINX container with Port forwarding and volume mapping
 
     ```
