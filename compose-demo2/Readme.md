@@ -1,13 +1,13 @@
 ## Docker-Compose demo
 
-1.  Create a new directory `C:\compose-demo1`
+1.  Create a new directory `C:\compose-demo2`
 
 2.  Create or Download [docker-compose.yml](./docker-compose.yml) 
 
 2.  Use following command to deploy the application.
 
     ```
-    $ cd \compose-demo1
+    $ cd \compose-demo2
     ## Kill all other containers
     $ docker rm -f $(docker ps -aq)
     ## delete the existing network net1, net2, net3
@@ -28,7 +28,7 @@
     System: MSSQL
     Servername: db1
     Username: SA
-    Password: Password$1234
+    Password: Password@1234
     ```
 
 4.  Cleap-Up

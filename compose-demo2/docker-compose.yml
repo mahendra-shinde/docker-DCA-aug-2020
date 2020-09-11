@@ -17,7 +17,7 @@ services:
     volumes:
       - db-data:/var/opt/mssql
     networks:
-      - net2
+      - net3
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'Password$1234'
@@ -26,6 +26,6 @@ services:
   c1:
     image: adminer
     networks:
-      - net2
+      - net3
     ports:
       - "8081:8080"    

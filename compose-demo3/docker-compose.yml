@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    image: mahendrshinde/myweb
+    ports:
+      - 80
+## The following SECTION is ONLY VALID for SWARM cluster
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          cpus: 0.5
+          memory: 250M
+        reservations:
+          cpus: 0.25
+          memory: 100M
+      placement:
+        max_replicas_per_node: 2
+        constraints:
+          - "node.role==worker"
+        
