@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy1
+  namespace: mahendra
+
+spec:
+  replicas: 3
+  strategy:
+    rollingUpdate:
+        # Allow TOTAL replicas TOBE HIGHER than replica-count
+        # There could be total 5 replicas while rolling update is happening
+        # Old RS could have 3 and New RS could have 2 replicas
+        maxSurge: 2
+        maxUnavailable: 2
+  minReadySeconds: 5
+  revisionHistoryLimit: 10
+  selector:
+      matchLabels:
+        app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      nodeName: node2
+      containers:
+        - image: mahendrshinde/myweb:1
+          name: web
+          ports:
+            - containerPort: 80
+    

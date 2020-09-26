@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs1
+  namespace: mahendra
+
+spec:
+  replicas: 3
+  minReadySeconds: 3
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      -  image: mahendrshinde/myweb
+         name: web
+         ports:
+          - containerPort: 80
+
+

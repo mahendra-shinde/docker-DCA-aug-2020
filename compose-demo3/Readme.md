@@ -14,15 +14,15 @@
           replicas: 3
           resources:
             limits:
-              cpus: 0.5
-              memory: 250M
+              cpus: '0.5'
+              memory: '250M'
             reservations:
-              cpus: 0.25
-              memory: 100M
+              cpus: '0.25'
+              memory: '100M'
           placement:
             max_replicas_per_node: 2
             constraints:
-              - "node.role==worker"            
+              - "node.role==worker" 
     ```
 
 2.  Following command to deployment
