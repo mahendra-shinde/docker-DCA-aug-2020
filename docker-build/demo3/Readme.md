@@ -1,5 +1,15 @@
 # ASP.NET CORE WebApplication
 
+## Notes
+
+* Docker build process cannot access files & directories OUTSIDE current context (directory which contains Dockerfile)
+* Avoid un-necessary files in current context
+* All docker commands should be executed from current directory, othewise build would fail.
+* Once build is successful, try a test container
+* You can always push the newly built image to your container registry (need credentials)
+
+## Demo Steps
+
 1.  Build the dotnet core project using Visual Studio
     And publish to folder.
 2.  Create Dockerfile 
